@@ -1,27 +1,25 @@
-# DevzaAssignment
+# Task Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+* Adding a task, Editing a task and deleteing a task
+* Option to filter by User 
+* Option to sort by priority
+* To Check the details of a task click on the task details card
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Screenshots
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![picture alt](https://drive.google.com/uc?export=view&id=1y6hzh7oJlL6cZpF3ADXgHKUzEkmPy4Ha "Add task")
 
-## Running end-to-end tests
+![picture alt](https://drive.google.com/uc?export=view&id=1GSNn3XT0gw-StKuxiNMnSCoZNHGW-sz9 "Dashboard Image")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![picture alt](https://drive.google.com/uc?export=view&id=1zzG-A_k9UkElsi3Hb1ai15MR1Ychp534 "Task Details Popup")
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![picture alt](https://drive.google.com/uc?export=view&id=1hDzuyExhbupMgdLPPs_NhZAzAP4kMaVD "Filter by user")
