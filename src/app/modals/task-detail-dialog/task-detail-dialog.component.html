@@ -1,0 +1,79 @@
+<form [formGroup]="taskForm" (ngSubmit)="submitResponse()" >
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 *ngIf="!isEditRequest;else showEditTemplate">
+                    Add New Task
+                </h1>
+                <ng-template #showEditTemplate>
+                    <h1>Task Details</h1>
+                </ng-template>
+            </div>
+            <div class="col">
+                <mat-icon style="float: right;" (click)="closeDialog()">close</mat-icon>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-label>
+                    Message *
+                </mat-label><br>
+                <input type="text" class="custom-input" formControlName="message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col custom">
+                <mat-label>
+                    Due Date
+                </mat-label><br>
+                <input [matDatepicker]="picker" [min]="minDate" class="custom-input" formControlName="due_date" (onfocus)="picker.open()" (click)="picker.open()">
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col custom">
+                <mat-label> Assign to</mat-label><br>
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-select formControlName="assigned_to">
+                        <mat-option *ngFor="let data of users" [value]="data.id">{{data.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-label>
+                    Priority
+                </mat-label>
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-select formControlName="priority">
+                        <mat-option *ngFor="let data of priorityList" [value]="data.id">
+                            <span class="{{data.name}}">
+                                {{data.name}}
+                            </span>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row" *ngIf="isEditRequest">
+            <div class="col">
+                <mat-label>
+                    Created On
+                </mat-label> <br>
+                <p style="margin-top: 5px;">
+                    {{taskData.created_on}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button mat-raised-button color="warn" (click)="delete()" type="" *ngIf="isEditRequest">Delete</button>
+            </div>
+            <div class="col">
+                <button mat-raised-button class="action" type="submit" color="primary">Save</button>
+                <button mat-button class="action" type="reset" (click)="closeDialog()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,64 @@
+<div class="container header">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <img src="../../../assets/notebook.svg" alt="notebook" width="30px" height="30px"> <h1>Task Manager</h1>
+            </div>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="primary" style="float: right;" (click)="openDialog()">Add <mat-icon>add</mat-icon></button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" *ngIf="usersList">
+        
+            <div *ngFor="let user of usersList">
+                <app-user-badge [user]="user" (userSelected)="applyUserFilter($event)"></app-user-badge>
+            </div>
+           
+       
+        <div class="col">
+            <mat-chip-list *ngIf="selectedUser">
+                <mat-chip [removable]="true" (removed)="removeUserFilter()" selected color="primary">
+                    {{selectedUser.name}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            </mat-chip-list>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="fill" style="float: right;">
+                <mat-label>Sort by Priority</mat-label>
+                <mat-select [(value)]="selectedPriority">
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+       
+    </div>
+    <div class="row" *ngIf="tasksList !== null && tasksList.length !== 0;else loadTemplate">
+        <div *ngFor="let task of tasksList | user : selectedUser | sortPipe: selectedPriority" class="col-lg-4">
+            <app-task-item [task]="task" (refreshEvent)="refreshData()"></app-task-item>
+        </div>
+        <!-- <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let task of tasksList | user : selectedUser">
+                <div class="row list">
+                    <div class="col-lg-6">
+                        <h4>{{task.message}}</h4>
+                    </div>
+                    <div class="col-lg-3">
+                        {{task.assigned_name}}
+                    </div>
+                    <div class="col-lg-3">
+                        {{task.priority}}
+                    </div>
+                </div>
+            </mat-list-item>
+          </mat-list> -->
+    </div>
+    <ng-template #loadTemplate>
+        <mat-spinner>
+            
+        </mat-spinner>
+    </ng-template>
+</div>

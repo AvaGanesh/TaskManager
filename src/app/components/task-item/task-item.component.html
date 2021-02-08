@@ -1,0 +1,19 @@
+<mat-card>
+    <div class="container" (click)="openDialog()">
+        <div class="row">
+            <div class="col">
+                <h4>{{task.message}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+               <span class="{{priority}}"> {{priority | uppercase}}</span>
+            </div>
+            <div class="col">
+                <span class="user">{{task.assigned_name}}</span>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+

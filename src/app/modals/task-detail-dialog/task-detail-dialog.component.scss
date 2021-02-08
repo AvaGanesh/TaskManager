@@ -1,0 +1,36 @@
+mat-icon {
+    cursor: pointer;
+}
+
+.custom-input {
+    width: 100%;
+    border: 1px solid #D4D6DB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 44px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+
+.col.custom {
+    margin-top: 10px;
+}
+
+.custom-input:hover {
+    border: 2px solid #C1C7D0;
+    outline: none;
+}
+
+.action {
+    float: right;
+}
+
+span {
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    padding: 4px;
+}
